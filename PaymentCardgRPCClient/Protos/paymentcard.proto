@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentCardgRPCService.Protos";
+
+service PaymentCard {
+	rpc CheckCard(CardRequest) returns(CardResult);
+}
+
+message CardRequest {
+    fixed64 number = 1;
+}
+message CardResult {
+	bool valid = 1;
+	string industryType = 2;
+	string truncated = 3;
+}
+
